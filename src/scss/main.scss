@@ -1,0 +1,36 @@
+//---------------------------------------------
+//
+//  Table of Contents
+//
+//    1. Basics
+//    2. Page Layout
+//    3. Components
+//
+//---------------------------------------------
+
+//---------------------------------------------
+// 1. Basic Components
+//---------------------------------------------
+
+@import "components/variables";
+@import "components/bootstrap";
+
+// * Swiper
+@import "~swiper/css/bundle";
+
+// * Fontawesome
+@import "@fortawesome/fontawesome-free/css/all.css";
+
+
+@import "components/fonts";
+@import "components/typography";
+@import "components/animations";
+
+
+//---------------------------------------------
+// 2.Section
+//---------------------------------------------
+
+@import "sections/navigation";
+@import "sections/slider";
+@import "sections/footer";

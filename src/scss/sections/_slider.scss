@@ -1,0 +1,262 @@
+//---------------------------------------------
+//
+//  Slider Component
+//
+//    1. Placeholder
+//    2. Component
+//
+//---------------------------------------------
+//---------------------------------------------
+// 1. Placeholder
+//---------------------------------------------
+
+// Swiper icon
+%swipericon {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+// Hero Slider Height
+%herosliderheightsm {
+    min-height: 21.25rem;
+}
+
+%herosliderheightmd {
+    @include media-breakpoint-up(md) {
+        min-height: 40.563rem;
+    }
+}
+
+// Hero Slider Animation
+%heroslidercontent {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+}
+
+// Hero Slider Nav
+%heroslidernav {
+    width: auto;
+    height: auto;
+    font-size: 1.125rem;
+    color: var(--bs-white);
+    bottom: 4rem;
+    top: auto;
+
+    &:after {
+        font-size: inherit;
+    }
+
+    &:hover {
+        color: var(--bs-primary);
+    }
+
+    @include media-breakpoint-up(xxl) {
+        font-size: 1.5rem;
+    }
+
+    @include media-breakpoint-down(md) {
+        display: none;
+    }
+}
+
+//---------------------------------------------
+// 2. Slider
+//---------------------------------------------
+
+.heroslider {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+
+    &__swiper {
+        &-wrapper {
+            width: 100%;
+            height: 100%;
+            @extend .heroslider;
+            @extend %herosliderheightsm;
+
+            @extend %herosliderheightmd;
+
+            &:before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                background: $dark;
+                opacity: .5;
+                z-index: 1;
+            }
+        }
+
+        &-image {
+            img {
+                width: 100%;
+                object-fit: cover;
+                @extend %herosliderheightsm;
+                
+                @extend %herosliderheightmd;
+            }
+        }
+
+        &-fluid {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        &-grider {
+            display: table;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        &-inner {
+            display: table-cell;
+            padding-top: 5rem;
+            vertical-align: middle;
+
+            @include media-breakpoint-up(md) {
+                padding-top: 7.2rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+                padding-top: 8.2rem;
+            }
+        }
+
+        &-content {
+            display: inline-block;
+            color: var(--bs-white);
+            max-width: 54rem;
+            position: relative;
+            padding: 3rem 3rem 3rem 8rem;
+
+            @include media-breakpoint-down(md) {
+                padding: 2rem 2rem 2rem 3rem;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                min-height: 6rem;
+                background-color: $dark;
+                opacity: 0.45;
+                clip-path: polygon(0 0, 100% 0, 66% 100%, 0% 100%);
+                z-index: -1;
+            }
+
+            .title {
+                margin: 0;
+                opacity: 0;
+                font-size: 1.875rem;
+                color: inherit;
+                line-height: 1.2;
+                font-weight: 700;
+                visibility: hidden;
+                transform: translateY(6.875rem);
+                text-transform: uppercase;
+                transition-delay: 1000ms;
+                transition: transform 2000ms ease, opacity 2000ms ease;
+
+                @include media-breakpoint-up(md) {
+                    font-size: 4.375rem;
+                }
+            }
+        }
+
+        // swiper-slide with active
+        .swiper-slide {
+            @extend .heroslider;
+
+            &-active {
+                .heroslider__swiper-fluid {
+                    &::after {
+                        opacity: .4;
+                        transform: translateY(0) translateX(-8rem);
+                    }
+                }
+
+                .heroslider__swiper-content {
+                    .btns {
+                        @extend %heroslidercontent;
+                    }
+                    .subtitle {
+                        @extend %heroslidercontent;
+                    }
+                    .title {
+                        @extend %heroslidercontent;
+                    }
+                    .description {
+                        @extend %heroslidercontent;
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper-button-next,
+    .swiper-rtl .swiper-button-prev {
+        right: 1.2%;
+
+        @include media-breakpoint-up(xxl) {
+            right: 7.25%;
+        }
+
+        @extend %heroslidernav;
+    }
+    
+    .swiper-button-prev,
+    .swiper-rtl .swiper-button-next {
+        left: auto;
+        right: 4.4%;
+
+        @include media-breakpoint-up(xxl) {
+            right: 9.5%;
+        }
+
+        @extend %heroslidernav;
+    }
+        
+    .swiper-button-disabled {
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s ease-in-out;
+    }
+    
+    .swiper-button-prev:after,
+    .swiper-rtl .swiper-button-next:after {
+        content: "\f30a";
+        @extend %swipericon;
+    }
+    
+    .swiper-button-next:after,
+    .swiper-rtl .swiper-button-prev:after {
+        content: "\f30b";
+        @extend %swipericon;
+    }
+
+    // Hero Slider Added Kenburn effect
+    .swiper--kenburn .swiper-slide img {
+        transform: scale(1.2);
+        transition: transform 3s linear;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .swiper--kenburn .swiper-slide.swiper-slide-duplicate-active img,
+    .swiper--kenburn .swiper-slide.swiper-slide.swiper-slide-active img {
+        transform: scale(1);
+    }
+}

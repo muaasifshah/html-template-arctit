@@ -1,0 +1,78 @@
+//---------------------------------------------
+//
+//  Variables
+//
+//    1. Bootstrap Fonts
+//    2. Bootstrap Globals
+//    3. Bootstrap Colors
+//    4. Bootstrap Container Width
+//
+//---------------------------------------------
+
+//---------------------------------------------
+// 1. Bootstrap Fonts
+//---------------------------------------------
+
+$font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+//---------------------------------------------
+// 2. Bootstrap Globals
+//---------------------------------------------
+
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+
+//---------------------------------------------
+// 3. Bootstrap Colors
+//---------------------------------------------
+
+$body-color: #5F5F5F; // The default text color
+
+$primary:    #92caeb;
+$secondary:  #333333;
+$success:    #198754;
+$info:       #0dcaf0;
+$warning:    #ffc107;
+$danger:     #dc3545;
+$white:      #ffffff;
+$light:      #f8f9fa;
+$dark:       #0D0E10;
+$gray:      #f3f3f3;
+
+//---------------------------------------------
+// 4. Bootstrap Container Width
+//---------------------------------------------
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+//---------------------------------------------
+// 5. Bootstrap Button
+//---------------------------------------------
+
+$btn-font-weight: 500; 
+$btn-font-size: 1.125rem;
+$btn-padding-y: 0.719rem;
+$btn-padding-x: 1.365rem;
+$btn-border-radius: 0.5rem;
+$btn-line-height: 1.45;
+
+//---------------------------------------------
+// 6. Bootstrap Heading
+//---------------------------------------------
+
+$h1-font-size: 2.625rem;
+$h2-font-size: 2.125rem;
+$h3-font-size: 1.875rem;
+$h4-font-size: 1.5rem;
+$h5-font-size: 1.25rem;
+$h6-font-size: 1.125rem;
+
+$headings-font-weight: 600 !default;
+$headings-color: var(--bs-secondary) !default;
