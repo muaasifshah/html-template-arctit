@@ -38,6 +38,7 @@ if (typeof(heroSlider) != 'undefined' && heroSlider != null) {
     navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }
   });
 }
+
 let sliderKenBurn = document.querySelectorAll('.swiper-kenburn .swiper-slide img');
 for (var i = 0; i < sliderKenBurn.length; i++) {
   var  _this_transform_origin= sliderKenBurn[i].dataset.transformOrigin;
