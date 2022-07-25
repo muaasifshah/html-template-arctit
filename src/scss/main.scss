@@ -12,6 +12,7 @@
 // 1. Basic Components
 //---------------------------------------------
 
+@import "components/fonts";
 @import "components/variables";
 @import "components/bootstrap";
 
@@ -21,8 +22,6 @@
 // * Fontawesome
 @import "@fortawesome/fontawesome-free/css/all.css";
 
-
-@import "components/fonts";
 @import "components/typography";
 @import "components/animations";
 

@@ -18,12 +18,13 @@
 
 // Hero Slider Height
 %herosliderheightsm {
-    min-height: 21.25rem;
+    min-height: 100vh;
 }
 
 %herosliderheightmd {
     @include media-breakpoint-up(md) {
-        min-height: 40.563rem;
+        min-height: 50rem;
+        max-height: 50rem;
     }
 }
 
@@ -36,27 +37,25 @@
 
 // Hero Slider Nav
 %heroslidernav {
+    position: relative;
+    top: 0;
+    right: auto;
+    left: auto;
     width: auto;
     height: auto;
-    font-size: 1.125rem;
+    display: inline-flex;
+    margin: 3px;
+    font-size: 2.5rem;
     color: var(--bs-white);
-    bottom: 4rem;
-    top: auto;
+    opacity: 0.75;
+    transition: all 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
 
     &:after {
         font-size: inherit;
     }
 
     &:hover {
-        color: var(--bs-primary);
-    }
-
-    @include media-breakpoint-up(xxl) {
-        font-size: 1.5rem;
-    }
-
-    @include media-breakpoint-down(md) {
-        display: none;
+        opacity: 1;
     }
 }
 
@@ -85,7 +84,7 @@
                 width: 100%;
                 height: 100%;
                 background: $dark;
-                opacity: .5;
+                opacity: .7;
                 z-index: 1;
             }
         }
@@ -118,27 +117,34 @@
 
         &-inner {
             display: table-cell;
-            padding-top: 5rem;
-            vertical-align: middle;
+            padding-top: 9.6rem;
+            vertical-align: top;
 
-            @include media-breakpoint-up(md) {
+            @include media-breakpoint-up(sm) {
                 padding-top: 7.2rem;
+                vertical-align: middle;
             }
 
             @include media-breakpoint-up(lg) {
-                padding-top: 8.2rem;
+                padding-top: 9.5rem;
             }
         }
 
         &-content {
             display: inline-block;
             color: var(--bs-white);
-            max-width: 54rem;
+            width: 100%;
+            max-width: 100%;
             position: relative;
-            padding: 3rem 3rem 3rem 8rem;
+            padding: 2.5rem 1.25rem 1.25rem 1.25rem;
 
-            @include media-breakpoint-down(md) {
-                padding: 2rem 2rem 2rem 3rem;
+            @include media-breakpoint-up(sm) {
+                max-width: 65rem;
+                padding: 4.625rem 3rem 4.625rem 6rem;
+            }
+
+            @include media-breakpoint-up(lg) {
+                padding: 6.625rem 3rem 6.625rem 8rem;
             }
 
             &:after {
@@ -148,19 +154,24 @@
                 right: 0;
                 bottom: 0;
                 left: 0;
-                width: 100%;
+                width: 70%;
                 height: 100%;
                 min-height: 6rem;
                 background-color: $dark;
                 opacity: 0.45;
                 clip-path: polygon(0 0, 100% 0, 66% 100%, 0% 100%);
                 z-index: -1;
+
+                @include media-breakpoint-down(sm) {
+                    width: 100%;
+                    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 67%);
+                }
             }
 
             .title {
                 margin: 0;
                 opacity: 0;
-                font-size: 1.875rem;
+                font-size: 2.5rem;
                 color: inherit;
                 line-height: 1.2;
                 font-weight: 700;
@@ -171,7 +182,11 @@
                 transition: transform 2000ms ease, opacity 2000ms ease;
 
                 @include media-breakpoint-up(md) {
-                    font-size: 4.375rem;
+                    font-size: calc(3.2rem + 1.125vw);
+                }
+
+                @include media-breakpoint-up(xl) {
+                    font-size: calc(4.275rem + 1.125vw);
                 }
             }
         }
@@ -206,45 +221,27 @@
         }
     }
 
-    .swiper-button-next,
-    .swiper-rtl .swiper-button-prev {
-        right: 1.2%;
+    .swiper-button {
+        margin-bottom: 5rem;
 
-        @include media-breakpoint-up(xxl) {
-            right: 7.25%;
+        .swiper-button-next,
+        .swiper-rtl .swiper-button-prev,
+        .swiper-button-prev,
+        .swiper-rtl .swiper-button-next {
+            @extend %heroslidernav;
         }
-
-        @extend %heroslidernav;
-    }
-    
-    .swiper-button-prev,
-    .swiper-rtl .swiper-button-next {
-        left: auto;
-        right: 4.4%;
-
-        @include media-breakpoint-up(xxl) {
-            right: 9.5%;
-        }
-
-        @extend %heroslidernav;
-    }
         
-    .swiper-button-disabled {
-        visibility: hidden;
-        opacity: 0;
-        transition: 0.5s ease-in-out;
-    }
-    
-    .swiper-button-prev:after,
-    .swiper-rtl .swiper-button-next:after {
-        content: "\f30a";
-        @extend %swipericon;
-    }
-    
-    .swiper-button-next:after,
-    .swiper-rtl .swiper-button-prev:after {
-        content: "\f30b";
-        @extend %swipericon;
+        .swiper-button-prev:after,
+        .swiper-rtl .swiper-button-next:after {
+            content: "\f30a";
+            @extend %swipericon;
+        }
+        
+        .swiper-button-next:after,
+        .swiper-rtl .swiper-button-prev:after {
+            content: "\f30b";
+            @extend %swipericon;
+        }
     }
 
     // Hero Slider Added Kenburn effect

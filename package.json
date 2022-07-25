@@ -13,7 +13,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/username/here_name.git"
+    "url": "https://github.com/muaasifshah/html-template-arctit"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
